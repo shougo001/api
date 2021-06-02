@@ -1,0 +1,2 @@
+class Mutter < ApplicationRecord
+end

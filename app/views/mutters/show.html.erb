@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @mutter.message %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @mutter.name %>
+</p>
+
+<%= link_to 'Edit', edit_mutter_path(@mutter) %> |
+<%= link_to 'Back', mutters_path %>
