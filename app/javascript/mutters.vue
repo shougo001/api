@@ -12,7 +12,7 @@
       <div class="column">
         <b-button type="is-primary" v-on:click="clickButton2"
                   size="is-medium" icon-left="reload">再表示</b-button>
-        <b-notification  @click.native="deleteButton" aria-close-label="CloseNotification" v-for="(item, key) in lists" :key="key">
+        <b-notification  @click.native="deleteButton(item)" aria-close-label="CloseNotification" v-for="(item, key) in lists" :key="key">
           {{ item.message }} / {{ item.name }} ({{ item.created_at }})
         </b-notification>
       </div>
@@ -51,6 +51,10 @@ export default {
       .then(response => {
         this.lists = response.data;
       });
+      this.$buefy.notification.open({
+        message: `${this.message}/${this.name}をつぶやきました。`,
+        type: 'is-success'
+      });
       this.message = '';
       this.name = '';
     },
@@ -60,9 +64,18 @@ export default {
       this.lists = response.data;
     });
     },
-    deleteButton(event) {
-      
-    }
+    deleteButton(item) {
+      console.log(item)
+      const params = {
+        id: item.id,
+        type: "delete",
+      }
+      axios.delete(`/mutters/${item.id}.json`, {data: params})
+      this.$buefy.notification.open({
+        message: `${item.message}/${item.name}を削除しました。`,
+        type: 'is-danger'
+      })
+    },
   },
 }
 </script>

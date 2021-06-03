@@ -58,9 +58,10 @@ class MuttersController < ApplicationController
   # DELETE /mutters/1 or /mutters/1.json
   def destroy
     @mutter.destroy
+    @mutters = Mutter.all.order(id: "DESC")
     respond_to do |format|
       format.html { redirect_to mutters_url, notice: "Mutter was successfully destroyed." }
-      format.json { head :no_content }
+      format.json { render json: @mutters }
     end
   end
 
