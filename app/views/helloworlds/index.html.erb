@@ -1,31 +1,3 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Helloworlds</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @helloworlds.each do |helloworld| %>
-      <tr>
-        <td><%= helloworld.content %></td>
-        <td><%= helloworld.name %></td>
-        <td><%= link_to 'Show', helloworld %></td>
-        <td><%= link_to 'Edit', edit_helloworld_path(helloworld) %></td>
-        <td><%= link_to 'Destroy', helloworld, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Helloworld', new_helloworld_path %>
 <%= stylesheet_pack_tag 'hello_vue' %>
 <%= javascript_pack_tag 'hello_vue' %>

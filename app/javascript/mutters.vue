@@ -17,6 +17,7 @@
         </b-notification>
       </div>
     </div>
+    <router-link to="/helloworlds_vue">helloworlds</router-link>
   </div>
 </template>
 
