@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      mutter: つぶやく
+    attributes:
+      mutter:
+        message: メッセージ
+        name: 名前
+  # 全てのmodelで共通して使用するattributesを定義
+  attributes:
+    created_at: 作成日
+    updated_at: 更新日
+  
+  activerecord:
+    errors:
+      models:
+        mutter:
+          attributes:
+            message:
+              blank: "は必須項目です。"
+            name:
+              blank: "は必須項目です。"
